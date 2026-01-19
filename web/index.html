@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esame Orale - Sistema Embedded</title>
+    <style>
+        :root {
+            font-size: clamp(14px, 2vw, 16px);
+        }
+
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            max-width: 600px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid #e0e0e0;
+            background: #fafafa;
+            flex-shrink: 0;
+        }
+
+        .header h1 {
+            font-size: 1.125rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .header .stats {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 0.375rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1rem 1.25rem;
+            overflow: hidden;
+            min-height: 0;
+        }
+
+        .question-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e8f0f7;
+            color: #1976d2;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            width: fit-content;
+        }
+
+        .tag.rimossa {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .question-text {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: #333;
+            font-weight: 500;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .question-number {
+            font-size: 0.8125rem;
+            color: #999;
+            font-weight: 500;
+        }
+
+        .footer {
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-top: 1px solid #e0e0e0;
+            background: #fafafa;
+            flex-shrink: 0;
+        }
+
+        button {
+            flex: 1;
+            padding: 0.625rem 0.75rem;
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-prev {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-prev:hover:not(:disabled) {
+            background: #e0e0e0;
+        }
+
+        .btn-prev:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-done {
+            background: #4caf50;
+            color: white;
+        }
+
+        .btn-done:hover {
+            background: #45a049;
+        }
+
+        .btn-next {
+            background: #1976d2;
+            color: white;
+        }
+
+        .btn-next:hover {
+            background: #1565c0;
+        }
+
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            text-align: center;
+            padding: 1.5rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .empty-state h2 {
+            font-size: 1.25rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .empty-state p {
+            font-size: 0.875rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .btn-reset {
+            background: #1976d2;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 0.75rem;
+        }
+
+        .btn-reset:hover {
+            background: #1565c0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 0.125rem;
+            background: #e0e0e0;
+            margin-top: 0.25rem;
+            border-radius: 0.0625rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #4caf50;
+            transition: width 0.3s ease;
+        }
+
+        .list-view {
+            display: none;
+            flex-direction: column;
+            overflow-y: auto;
+            gap: 0.5rem;
+        }
+
+        .list-view.active {
+            display: flex;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: #f9f9f9;
+            border-left: 4px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-radius: 0.25rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .list-item:hover {
+            background: #f0f0f0;
+        }
+
+        .list-item.completed {
+            background: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+
+        .list-item-id {
+            font-size: 0.75rem;
+            color: #999;
+            min-width: 2rem;
+            font-weight: 600;
+        }
+
+        .list-item-text {
+            flex: 1;
+            font-size: 0.875rem;
+            color: #333;
+            line-height: 1.4;
+        }
+
+        .list-item.completed .list-item-text {
+            color: #2e7d32;
+            font-weight: 500;
+        }
+
+        .list-item-tag {
+            font-size: 0.65rem;
+            color: #666;
+            background: #e8e8e8;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.2rem;
+            flex-shrink: 0;
+        }
+
+        .header.list-mode h1 {
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .header.list-mode h1:hover {
+            color: #1976d2;
+        }
+
+        .header {
+            position: relative;
+        }
+
+        .btn-reset-header {
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            padding: 0.5rem 0.75rem;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-height: auto;
+        }
+
+        .btn-reset-header:hover {
+            background: #c0392b;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header" id="header">
+            <button class="btn-reset-header" onclick="resetProgress()">Reset</button>
+            <h1 id="headerTitle" onclick="toggleListView()">Esame Orale</h1>
+            <div class="stats">
+                <div class="stat">
+                    <span>Domanda</span>
+                    <span class="stat-value"><span id="current">1</span> / <span id="total">107</span></span>
+                </div>
+                <div class="stat">
+                    <span>Completate</span>
+                    <span class="stat-value" id="completed">0</span>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="content" id="content">
+            <div class="question-card" id="questionCard">
+                <!-- Content loaded by JavaScript -->
+            </div>
+            <div class="list-view" id="listView">
+                <!-- List items loaded by JavaScript -->
+            </div>
+        </div>
+
+        <div class="footer" id="footer">
+            <button class="btn-prev" id="btnPrev" onclick="previousQuestion()">Precedente</button>
+            <button class="btn-done" id="btnDone" onclick="markAsDone()">Completata</button>
+            <button class="btn-next" id="btnNext" onclick="nextQuestion()">Prossima</button>
+        </div>
+    </div>
+
+    <script>
+        let domande = [];
+        let currentIndex = 0;
+        let completedIds = new Set();
+
+        const STORAGE_KEY = 'esame_domande_completate';
+
+        // Load questions from JSON
+        async function loadQuestions() {
+            try {
+                const response = await fetch('domande.json');
+                domande = await response.json();
+                shuffleQuestions();
+                document.getElementById('total').textContent = domande.length;
+                loadCompletedFromStorage();
+                displayQuestion();
+            } catch (error) {
+                console.error('Errore nel caricamento delle domande:', error);
+                showError();
+            }
+        }
+
+        function shuffleQuestions() {
+            for (let i = domande.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [domande[i], domande[j]] = [domande[j], domande[i]];
+            }
+        }
+
+        function loadCompletedFromStorage() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored) {
+                completedIds = new Set(JSON.parse(stored));
+            }
+            updateCompletedCount();
+        }
+
+        function saveCompletedToStorage() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(completedIds)));
+        }
+
+        function updateCompletedCount() {
+            document.getElementById('completed').textContent = completedIds.size;
+            const progress = (completedIds.size / domande.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function displayQuestion() {
+            if (domande.length === 0) return;
+
+            const question = domande[currentIndex];
+            const isCompleted = completedIds.has(question.id);
+
+            const card = document.getElementById('questionCard');
+            const tagsHtml = `
+                <div>
+                <span class="tag">${escapeHtml(question.argomento)}</span>
+                ${question.rimossa ? '<span class="tag rimossa">RIMOSSA</span>' : ''}
+                </div>
+            `;
+            card.innerHTML = `
+                ${tagsHtml}
+                <div class="question-text">${escapeHtml(question.testo)}</div>
+            `;
+
+            // Update button states
+            document.getElementById('btnPrev').disabled = currentIndex === 0;
+            document.getElementById('btnPrev').disabled = currentIndex === 0;
+            document.getElementById('btnDone').textContent = isCompleted ? 'Annulla' : 'Completata';
+            document.getElementById('btnDone').style.background = isCompleted ? '#ffc107' : '#4caf50';
+
+            // Update counter
+            document.getElementById('current').textContent = currentIndex + 1;
+
+            // Show empty state if all completed
+            if (completedIds.size === domande.length) {
+                showCompletedState();
+            }
+        }
+
+        function nextQuestion() {
+            if (currentIndex < domande.length - 1) {
+                currentIndex++;
+                displayQuestion();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                displayQuestion();
+            }
+        }
+
+        function markAsDone() {
+            const question = domande[currentIndex];
+            if (completedIds.has(question.id)) {
+                completedIds.delete(question.id);
+            } else {
+                completedIds.add(question.id);
+            }
+            saveCompletedToStorage();
+            updateCompletedCount();
+            displayQuestion();
+        }
+
+        function showCompletedState() {
+            const card = document.getElementById('questionCard');
+            card.innerHTML = `
+                <div class="empty-state">
+                    <h2>Tutte le domande completate!</h2>
+                    <p>Hai completato tutte le 107 domande dell'esame orale di Sistema Embedded.</p>
+                    <button class="btn-reset" onclick="resetProgress()">Resetta Progresso</button>
+                </div>
+            `;
+        }
+
+        function showError() {
+            const card = document.getElementById('questionCard');
+            card.innerHTML = `
+                <div class="empty-state">
+                    <h2>Errore</h2>
+                    <p>Impossibile caricare le domande. Assicurati che il file domande.json sia presente nella stessa cartella di index.html</p>
+                </div>
+            `;
+        }
+
+        function resetProgress() {
+            if (confirm('Sei sicuro di voler resettare il progresso? Tutte le domande completate verranno cancellate.')) {
+                completedIds.clear();
+                saveCompletedToStorage();
+                updateCompletedCount();
+                currentIndex = 0;
+                displayQuestion();
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        let isListViewActive = false;
+
+        function toggleListView() {
+            isListViewActive = !isListViewActive;
+            if (isListViewActive) {
+                showListView();
+            } else {
+                hideListView();
+            }
+        }
+
+        function showListView() {
+            document.getElementById('questionCard').style.display = 'none';
+            document.getElementById('listView').classList.add('active');
+            document.getElementById('footer').style.display = 'none';
+            document.getElementById('header').classList.add('list-mode');
+            document.getElementById('headerTitle').textContent = 'Esame Orale - Elenco';
+            renderListView();
+        }
+
+        function hideListView() {
+            document.getElementById('questionCard').style.display = 'flex';
+            document.getElementById('listView').classList.remove('active');
+            document.getElementById('footer').style.display = 'flex';
+            document.getElementById('header').classList.remove('list-mode');
+            document.getElementById('headerTitle').textContent = 'Esame Orale';
+        }
+
+        function renderListView() {
+            const listView = document.getElementById('listView');
+            let html = '';
+            // Ordina per ID per mostrare le domande in ordine originale
+            const sortedDomande = [...domande].sort((a, b) => a.id - b.id);
+            sortedDomande.forEach((question) => {
+                const isCompleted = completedIds.has(question.id);
+                const completedClass = isCompleted ? 'completed' : '';
+                // Trova l'indice della domanda nell'array originale mescolato
+                const index = domande.findIndex(q => q.id === question.id);
+                html += `
+                    <div class="list-item ${completedClass}" onclick="selectFromList(${index})">
+                        <div class="list-item-id">#${question.id}</div>
+                        <div class="list-item-text">${escapeHtml(question.testo)}</div>
+                        <div class="list-item-tag">${escapeHtml(question.argomento)}</div>
+                    </div>
+                `;
+            });
+            listView.innerHTML = html;
+        }
+
+        function selectFromList(index) {
+            currentIndex = index;
+            toggleListView();
+            displayQuestion();
+        }
+
+        // Initialize
+        loadQuestions();
+    </script>
+</body>
+
+</html>

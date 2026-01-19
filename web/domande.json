@@ -1,0 +1,698 @@
+[
+  {
+    "id": 1,
+    "testo": "Definizione di sistema embedded",
+    "argomento": "Intro",
+    "rimossa": false
+  },
+  {
+    "id": 2,
+    "testo": "Panoramica generale sui sistemi embedded, classi di device, caratteristiche, ordini di grandezza (dimensioni, potenze, consumi, ecc.), ambiti di utilizzo",
+    "argomento": "Intro",
+    "rimossa": false
+  },
+  {
+    "id": 3,
+    "testo": "Componenti interni di un MCU",
+    "argomento": "Intro",
+    "rimossa": false
+  },
+  {
+    "id": 4,
+    "testo": "Descrivere PLC",
+    "argomento": "Intro",
+    "rimossa": true
+  },
+  {
+    "id": 5,
+    "testo": "Definire SoC, cosa contiene, come si 'combina' per la realizzazione dei vari prodotti reali",
+    "argomento": "Intro",
+    "rimossa": false
+  },
+  {
+    "id": 6,
+    "testo": "Cosa è l'embedded computing",
+    "argomento": "Intro",
+    "rimossa": false
+  },
+  {
+    "id": 7,
+    "testo": "Sistemi monoprogrammati e multiprogrammati, differenze, caratteristiche, cosa c'entra la MdT?",
+    "argomento": "Concetti",
+    "rimossa": false
+  },
+  {
+    "id": 8,
+    "testo": "Conversione AD e DA, caratteristiche, pregi e difetti, considerazioni sul flusso di dati campionati",
+    "argomento": "Concetti",
+    "rimossa": false
+  },
+  {
+    "id": 9,
+    "testo": "Spiegare tecniche di multiplexing (divisione tempo, frequenza), shift register",
+    "argomento": "Concetti",
+    "rimossa": false
+  },
+  {
+    "id": 10,
+    "testo": "Differenza fra controllo a loop chiuso e aperto, problemi del loop aperto",
+    "argomento": "Concetti",
+    "rimossa": false
+  },
+  {
+    "id": 11,
+    "testo": "Spiegare tecnica PID per controllo a loop chiuso",
+    "argomento": "Concetti",
+    "rimossa": false
+  },
+  {
+    "id": 12,
+    "testo": "Considerazioni sull'uso della memoria in un Arduino, rispetto ai tipi di dati disponibili",
+    "argomento": "Concetti",
+    "rimossa": false
+  },
+  {
+    "id": 13,
+    "testo": "Architettura Von Neumann vs. Harvard",
+    "argomento": "Concetti",
+    "rimossa": false
+  },
+  {
+    "id": 14,
+    "testo": "Argomentare validità della ricorsione in ambito embedded, vantaggi e svantaggi",
+    "argomento": "Concetti",
+    "rimossa": false
+  },
+  {
+    "id": 15,
+    "testo": "Descrivere la gestione della memoria in un sistema embedded",
+    "argomento": "Concetti",
+    "rimossa": false
+  },
+  {
+    "id": 16,
+    "testo": "Spiegare meccanismo dell'interrupt",
+    "argomento": "Concetti",
+    "rimossa": true
+  },
+  {
+    "id": 17,
+    "testo": "Definire categorie 'real time'",
+    "argomento": "Concetti",
+    "rimossa": true
+  },
+  {
+    "id": 18,
+    "testo": "Spiegare licenza proprietaria vs. libera",
+    "argomento": "Concetti",
+    "rimossa": false
+  },
+  {
+    "id": 19,
+    "testo": "Fare esempio di licenza software libera, descrivendone le caratteristiche salienti",
+    "argomento": "Concetti",
+    "rimossa": false
+  },
+  {
+    "id": 20,
+    "testo": "Descrivere il concetto di watchdog",
+    "argomento": "Concetti",
+    "rimossa": false
+  },
+  {
+    "id": 21,
+    "testo": "Descrivere a grandi linee il funzionamento di un resistore/condensatore/transistor/etc./... citare utilizzi",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 22,
+    "testo": "Panoramica delle unità di misura (elettricità/elettronica) e loro significato",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 23,
+    "testo": "Spiegare i collegamenti serie e parallelo per resistori e condensatori",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 24,
+    "testo": "Descrivere un filtro passa alto/basso, elencare utilizzi",
+    "argomento": "Richiami",
+    "rimossa": true
+  },
+  {
+    "id": 25,
+    "testo": "Spiegare Veff (efficace)",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 26,
+    "testo": "Descrivere leggi di Kirchhoff",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 27,
+    "testo": "Differenza fra corrente alternata e continua",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 28,
+    "testo": "Cos'è la potenza elettrica?",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 29,
+    "testo": "Cos'è un segnale?",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 30,
+    "testo": "Quale effetto ha un condensatore su un segnale variabile?",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 31,
+    "testo": "Cosa si intende con 'forma d'onda'?",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 32,
+    "testo": "Spiegare costante di tempo RC",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 33,
+    "testo": "Descrivere integratore (passa basso) e differenziatore (passa alto) RC",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 34,
+    "testo": "Descrivere leggi di Ohm e loro significato",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 35,
+    "testo": "Panoramica generale su sensori 'fisici', esempi",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 36,
+    "testo": "Panoramica generale su sensori 'numerici', esempi",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 37,
+    "testo": "Panoramica generale su attuatori, esempi",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 38,
+    "testo": "Panoramica generale su motori, esempi",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 39,
+    "testo": "Panoramica strumenti di misura, esempi",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 40,
+    "testo": "Spiegare PWM e utilizzi",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 41,
+    "testo": "Panoramica strumenti di misura e loro uso, problemi possibili",
+    "argomento": "Richiami",
+    "rimossa": false
+  },
+  {
+    "id": 42,
+    "testo": "Cos'è un ISA?",
+    "argomento": "Architetture",
+    "rimossa": false
+  },
+  {
+    "id": 43,
+    "testo": "Differenze fra CISC, RISC, VLIW, EPIC",
+    "argomento": "Architetture",
+    "rimossa": false
+  },
+  {
+    "id": 44,
+    "testo": "Esempi CISC e RISC",
+    "argomento": "Architetture",
+    "rimossa": false
+  },
+  {
+    "id": 45,
+    "testo": "Cosa si intende con 'endianness'?",
+    "argomento": "Architetture",
+    "rimossa": false
+  },
+  {
+    "id": 46,
+    "testo": "Cos'è un FPGA?",
+    "argomento": "Architetture",
+    "rimossa": false
+  },
+  {
+    "id": 47,
+    "testo": "Descrivere architettura AVR con esempi",
+    "argomento": "Architetture",
+    "rimossa": false
+  },
+  {
+    "id": 48,
+    "testo": "Descrivere architettura Xtensa con esempi",
+    "argomento": "Architetture",
+    "rimossa": false
+  },
+  {
+    "id": 49,
+    "testo": "Cosa si intende con SoC/demo board/eval board/validation board?",
+    "argomento": "Architetture",
+    "rimossa": false
+  },
+  {
+    "id": 50,
+    "testo": "Storia e architettura Arduino",
+    "argomento": "Architetture",
+    "rimossa": false
+  },
+  {
+    "id": 51,
+    "testo": "Descrivere piattaforma STM32",
+    "argomento": "Architetture",
+    "rimossa": false
+  },
+  {
+    "id": 52,
+    "testo": "Descrivere piattaforma ESP8266/ESP32",
+    "argomento": "Architetture",
+    "rimossa": false
+  },
+  {
+    "id": 53,
+    "testo": "Cos'è NodeMCU?",
+    "argomento": "Architetture",
+    "rimossa": false
+  },
+  {
+    "id": 54,
+    "testo": "Cosa si intende con PCB?",
+    "argomento": "Architetture",
+    "rimossa": false
+  },
+  {
+    "id": 55,
+    "testo": "Differenze fra i vari tipi di memoria (RAM/ROM/flash/EPROM/sequenziale/casuale/SDRAM/DRAM/DDR/etc.)",
+    "argomento": "Mem e I/O",
+    "rimossa": false
+  },
+  {
+    "id": 56,
+    "testo": "Cos'è e cosa fa una MMU?",
+    "argomento": "Mem e I/O",
+    "rimossa": false
+  },
+  {
+    "id": 57,
+    "testo": "Panoramica supporti memoria di massa nell'embedded, pregi e difetti",
+    "argomento": "Mem e I/O",
+    "rimossa": false
+  },
+  {
+    "id": 58,
+    "testo": "Cosa si intende con XIP? pregi e difetti?",
+    "argomento": "Mem e I/O",
+    "rimossa": false
+  },
+  {
+    "id": 59,
+    "testo": "Quali tipi di filesystem vengono usati nell'embedded? pregi e difetti",
+    "argomento": "Mem e I/O",
+    "rimossa": false
+  },
+  {
+    "id": 60,
+    "testo": "Cos'è il 'wear leveling'?",
+    "argomento": "Mem e I/O",
+    "rimossa": false
+  },
+  {
+    "id": 61,
+    "testo": "Cos'è una RS232? che caratteristiche ha?",
+    "argomento": "Mem e I/O",
+    "rimossa": false
+  },
+  {
+    "id": 62,
+    "testo": "Descrivere NMEA0183",
+    "argomento": "Mem e I/O",
+    "rimossa": false
+  },
+  {
+    "id": 63,
+    "testo": "Descrivere I2C",
+    "argomento": "Mem e I/O",
+    "rimossa": true
+  },
+  {
+    "id": 64,
+    "testo": "Descrivere I2S",
+    "argomento": "Mem e I/O",
+    "rimossa": true
+  },
+  {
+    "id": 65,
+    "testo": "Descrivere SPI",
+    "argomento": "Mem e I/O",
+    "rimossa": true
+  },
+  {
+    "id": 66,
+    "testo": "Descrivere CAN-BUS",
+    "argomento": "Mem e I/O",
+    "rimossa": true
+  },
+  {
+    "id": 67,
+    "testo": "Descrivere Ethernet",
+    "argomento": "Mem e I/O",
+    "rimossa": true
+  },
+  {
+    "id": 68,
+    "testo": "A cosa serve una linea di CLOCK? se ne può fare a meno?",
+    "argomento": "Mem e I/O",
+    "rimossa": false
+  },
+  {
+    "id": 69,
+    "testo": "Vantaggi e svantaggi del 'chip select'",
+    "argomento": "Mem e I/O",
+    "rimossa": false
+  },
+  {
+    "id": 70,
+    "testo": "Cosa si intende con GPIO? come viene usato?",
+    "argomento": "Mem e I/O",
+    "rimossa": true
+  },
+  {
+    "id": 71,
+    "testo": "Pullup e pulldown",
+    "argomento": "Mem e I/O",
+    "rimossa": false
+  },
+  {
+    "id": 72,
+    "testo": "Cos'è il 'bit banging'?",
+    "argomento": "Mem e I/O",
+    "rimossa": true
+  },
+  {
+    "id": 73,
+    "testo": "Vantaggi e svantaggi del bit banging",
+    "argomento": "Mem e I/O",
+    "rimossa": true
+  },
+  {
+    "id": 74,
+    "testo": "Perchè negli alimentatori switching non riesco a notare le oscillazioni di corrente?",
+    "argomento": "Mem e I/O",
+    "rimossa": true
+  },
+  {
+    "id": 75,
+    "testo": "Cos'è il JTAG?",
+    "argomento": "Mem e I/O",
+    "rimossa": false
+  },
+  {
+    "id": 76,
+    "testo": "Cos'è un S.O.?",
+    "argomento": "S.O.",
+    "rimossa": false
+  },
+  {
+    "id": 77,
+    "testo": "Descrivere architettura monolitica/microkernel/etc.",
+    "argomento": "S.O.",
+    "rimossa": true
+  },
+  {
+    "id": 78,
+    "testo": "Cosa si intende con 'preemptive multitasking'?",
+    "argomento": "S.O.",
+    "rimossa": false
+  },
+  {
+    "id": 79,
+    "testo": "Cos'è un filesystem?",
+    "argomento": "S.O.",
+    "rimossa": false
+  },
+  {
+    "id": 80,
+    "testo": "Cos'è il 'root filesystem'?",
+    "argomento": "S.O.",
+    "rimossa": true
+  },
+  {
+    "id": 81,
+    "testo": "Cos'è un 'init system'?",
+    "argomento": "S.O.",
+    "rimossa": true
+  },
+  {
+    "id": 82,
+    "testo": "Cos'è una shell?",
+    "argomento": "S.O.",
+    "rimossa": true
+  },
+  {
+    "id": 83,
+    "testo": "Cos'è e cosa serve un bootloader?",
+    "argomento": "S.O.",
+    "rimossa": true
+  },
+  {
+    "id": 84,
+    "testo": "Cos'è una toolchain?",
+    "argomento": "Linux",
+    "rimossa": false
+  },
+  {
+    "id": 85,
+    "testo": "Cos'è un build system? citarne qualcuno e descrivere",
+    "argomento": "Linux",
+    "rimossa": false
+  },
+  {
+    "id": 86,
+    "testo": "Cosa sono le partizioni? che tipi puoi citare e descrivere?",
+    "argomento": "Linux",
+    "rimossa": false
+  },
+  {
+    "id": 87,
+    "testo": "Descrivere cos'è FreeRTOS e come viene utilizzato",
+    "argomento": "FreeRTOS",
+    "rimossa": false
+  },
+  {
+    "id": 88,
+    "testo": "Cos'è un task in FreeRTOS?",
+    "argomento": "FreeRTOS",
+    "rimossa": false
+  },
+  {
+    "id": 89,
+    "testo": "Cos'è e a cosa serve un semaforo?",
+    "argomento": "FreeRTOS",
+    "rimossa": false
+  },
+  {
+    "id": 90,
+    "testo": "Origine di Arduino",
+    "argomento": "Arduino",
+    "rimossa": false
+  },
+  {
+    "id": 91,
+    "testo": "Pro e contro della piattaforma",
+    "argomento": "Arduino",
+    "rimossa": false
+  },
+  {
+    "id": 92,
+    "testo": "Spiegare meccanismo di boot di un Arduino (classico: UNO)",
+    "argomento": "Arduino",
+    "rimossa": false
+  },
+  {
+    "id": 93,
+    "testo": "Spiegare il funzionamento di setup() e loop()",
+    "argomento": "Arduino",
+    "rimossa": false
+  },
+  {
+    "id": 94,
+    "testo": "Panoramica tipi di dato",
+    "argomento": "Arduino",
+    "rimossa": false
+  },
+  {
+    "id": 95,
+    "testo": "Panoramica operatori",
+    "argomento": "Arduino",
+    "rimossa": false
+  },
+  {
+    "id": 96,
+    "testo": "Cos'è un array?",
+    "argomento": "Arduino",
+    "rimossa": false
+  },
+  {
+    "id": 97,
+    "testo": "Spiegare direttive compilatore",
+    "argomento": "Arduino",
+    "rimossa": false
+  },
+  {
+    "id": 98,
+    "testo": "Panoramica costrutti di controllo di flusso",
+    "argomento": "Arduino",
+    "rimossa": false
+  },
+  {
+    "id": 99,
+    "testo": "Cos'è una funzione?",
+    "argomento": "Arduino",
+    "rimossa": false
+  },
+  {
+    "id": 100,
+    "testo": "Descrivere il meccanismo di gestione degli interrupt facendo esempi di codice",
+    "argomento": "Arduino",
+    "rimossa": false
+  },
+  {
+    "id": 101,
+    "testo": "Descrivere funzionalità del piedino AREF/VIN/D0-1-2-...-N/GND/A0-1-2-...-N/RX/TX/SDA/SCL/... di Arduino/Wemos/...",
+    "argomento": "Arduino",
+    "rimossa": false
+  },
+  {
+    "id": 102,
+    "testo": "Spiegare differenza fra GPIO digitale e analogico",
+    "argomento": "Arduino",
+    "rimossa": false
+  },
+  {
+    "id": 103,
+    "testo": "Spiegare livelli ISO/OSI e TCP/IP",
+    "argomento": "Rete",
+    "rimossa": true
+  },
+  {
+    "id": 104,
+    "testo": "Citare protocolli 'normali' e 'IoT', differenze, pro e contro",
+    "argomento": "Rete",
+    "rimossa": false
+  },
+  {
+    "id": 105,
+    "testo": "Panoramica topologie di rete",
+    "argomento": "Rete",
+    "rimossa": true
+  },
+  {
+    "id": 106,
+    "testo": "Descrivere a grandi linee il protocollo OSC/MQTT...",
+    "argomento": "Rete",
+    "rimossa": true
+  },
+  {
+    "id": 107,
+    "testo": "Cos'è LoRa?",
+    "argomento": "Rete",
+    "rimossa": true
+  },
+  {
+    "id": 114,
+    "testo": "Protocollo OSC",
+    "argomento": "Rete",
+    "rimossa": false
+  },
+  {
+    "id": 115,
+    "testo": "Protocollo MQTT",
+    "argomento": "Rete",
+    "rimossa": false
+  },
+  {
+    "id": 116,
+    "testo": "Cos'è LoRa? che caratteristiche lo contraddistinguono da altre tecnologie di comunicazione?",
+    "argomento": "Rete",
+    "rimossa": false
+  },
+  {
+    "id": 108,
+    "testo": "Multitasking su MCU, quali opzioni?",
+    "argomento": "Domande generali",
+    "rimossa": false
+  },
+  {
+    "id": 109,
+    "testo": "Cosa si intende con livelli 'TTL'? perché sono stati definiti così?",
+    "argomento": "Domande generali",
+    "rimossa": false
+  },
+  {
+    "id": 110,
+    "testo": "Cosa sono gli ambienti di sviluppo generativi?",
+    "argomento": "Domande generali",
+    "rimossa": false
+  },
+  {
+    "id": 111,
+    "testo": "Che caratteristica saliente ha Rust? (rispetto a C/C++)",
+    "argomento": "Domande generali",
+    "rimossa": false
+  },
+  {
+    "id": 112,
+    "testo": "Parla di Micropython",
+    "argomento": "Domande generali",
+    "rimossa": false
+  },
+  {
+    "id": 113,
+    "testo": "Ha senso Linux nell'embedded? in quali casi? discutere",
+    "argomento": "Domande generali",
+    "rimossa": false
+  }
+]
